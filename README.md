@@ -3,7 +3,23 @@
 ## Descripción
 Cat App es una aplicación diseñada para ayudar a los dueños de gatos a gestionar y cuidar a sus amigos felinos. La aplicación incluye características esenciales como perfiles de gatos y listas de tareas.
 
-![](https://media.giphy.com/media/7NoNw4pMNTvgc/giphy.gif?cid=790b761169xwn81yebqu4fsovj3jfdedw2yzcoqblt7yl4r5&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+![Screeshots](./app/public/localhost_5173_register.png)
+
+![Screeshots](./app/public/localhost_5173_login.png)
+
+![](./app/public/localhost_5173_%20(1).png){width=500 height=800}
+
+![](./app/public/localhost_5173_%20(3).png)
+
+
+![](./app/public/localhost_5173_tasks_6744dc0df59b158c00da04b9.png)
+
+![](./app/public/localhost_5173_tasks_6744dc0df59b158c00da04b9%20(1).png)
+
+
+
+
+
 
 ## Requisitos Previos 📋
 

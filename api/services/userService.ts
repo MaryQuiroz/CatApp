@@ -47,41 +47,42 @@ const registerUser = (userData) => {
 }
 
 
- const authenticateUser = (userData) => {
+const authenticateUser = (userData) => {
+    const { email, password } = userData
 
-        const { email, password } = userData
+    validate.text(email, 'email', true)
+    validate.password(password)  // Eliminado el segundo parámetro incorrecto
 
-        validate.text(email, 'email', true)
-        validate.password(password, 'maryquiroz124')
-
-        return User.findOne({ email })
+    return User.findOne({ email })
         .catch(error => { throw new SystemError(error.message)})
         .then(user => {
             if (!user)
                 throw new NotFoundError('user not found')
-            const isPasswordValid = bcrypt.compare(password, user.password)
-            if (!isPasswordValid) {
-                throw new CredentialsError("Invalid password");
-            }
-        
-        const token = jwt.sign({ sub: user.id }, JWT_SECRET, { expiresIn: JWT_EXP })
-        return token
+            
+            return bcrypt.compare(password, user.password)
+                .then(isPasswordValid => {
+                    if (!isPasswordValid) {
+                        throw new CredentialsError("Invalid password");
+                    }
+                    
+                    const token = jwt.sign({ sub: user.id }, JWT_SECRET, { expiresIn: '24h' }) // Añadido un valor por defecto para expiración
+                    return token
+                })
         })    
 }
-    const retrieveUser = (userId: string) => {
 
-        validate.text(userId, 'userId', true)
-        
-        return User.findById(userId)
-        
+const retrieveUser = (userId: string) => {
+    validate.text(userId, 'userId', true)
+    
+    return User.findById(userId)
         .catch(error => { throw new SystemError(error.message)})
         .then(user => {
-            delete user.password
             if (!user) throw new NotFoundError('user not found')
-                return user
+            const userObj = user.toObject()
+            delete userObj.password
+            return userObj
         })
-    }
-
+}
 
 export default {
     registerUser,
