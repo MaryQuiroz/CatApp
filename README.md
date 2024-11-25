@@ -7,7 +7,7 @@ Cat App es una aplicación diseñada para ayudar a los dueños de gatos a gestio
 
 ![Screeshots](./app/public/localhost_5173_login.png)
 
-![](./app/public/localhost_5173_%20(1).png){width=500 height=800}
+![](./app/public/localhost_5173_%20(1).png)
 
 ![](./app/public/localhost_5173_%20(3).png)
 
